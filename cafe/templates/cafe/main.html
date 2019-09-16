@@ -1,0 +1,36 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO N SEOK</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?ver=5" type="text/css">
+</head>
+<body>
+    <header>
+        <a href="{% url 'cafe:index' %}"><img src="{% static "images/logo.png" %}" alt="SEO N SEOK"></a>
+        <ul id="header-nav">
+            <li><a href="{% url 'cafe:menu' %}"><img src="{% static "images/menu.png" %}" alt="Menu"></a></li>
+            <li><a href="{% url 'cafe:store' %}"><img src="{% static "images/store.png" %}" alt="Store"></a></li>
+            <li><a href="{% url 'cafe:event' %}"><img src="{% static "images/event.png" %}" alt="Event"></a></li>
+        </ul>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <footer>
+        <div id="main-footer-nav">
+            <ul>
+                <li><a href="{% url 'cafe:index' %}" class="signin size_up"></a><h1>SIGN IN</h1></li>
+                <li><a href="{% url 'cafe:index' %}" class="login size_up"></a><h1>LOG IN</h1></li>
+                <li><a href="{% url 'cafe:store' %}" class="address size_up"></a><h1>LOCATION</h1></li>
+            </ul>
+        </div>
+        <div id="copyright">
+            <p>&copy; 2016 SEO N SEOK. All Rights Reserved.<br/>
+            경기도 포천시 호국로 1007 대진대학교 공과대학 다동 4층</p>
+        </div>
+    </footer>
+</body>
+</html>

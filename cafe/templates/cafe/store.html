@@ -1,0 +1,45 @@
+{% extends 'cafe/main.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    {% if message %}
+        <script>
+            alert('{{ message }}')
+        </script>
+    {% endif %}
+    <section id="section-header">
+        <h1>Store</h1>
+        <div id="store-header">
+            <div class="address">
+                <div>
+                    <img src="{% static 'images/check_in.png' %}" alt="check_in">
+                    <h1>1007 HOGUK-RO, POCHEON-SI,<br> GYEONGGI-DO, KOREA</h1>
+                    <p>경기도 포천시 호국로 1007 대진대학교 공과대학 다동 4층</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <article id="contact">
+        <div class="inquiry">
+            <img src="{% static 'images/map.png' %}" alt="map">
+            <h1>고객문의</h1>
+            <form method="POST"> {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="전송">
+            </form>
+        </div>
+    </article>
+    <aside id="route">
+        <h1>버스 이용안내</h1>
+        <table>
+            <tr>
+                <td>3100</td>
+                <td>양재역<br> → 강남역<br> → 석계역<br> → 태릉입구역<br> → 하계역<br> → 수락산역<br> → 의정부<br> → 대진대학교</td>
+            </tr>
+            <tr>
+                <td>3500</td>
+                <td>건대입구역<br> → 세종대역<br> → 석계역<br> → 태릉입구역<br> → 수락산역<br> → 의정부<br> → 대진대학교</td>
+            </tr>
+        </table>
+    </aside>
+{% endblock %}

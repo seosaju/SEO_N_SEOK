@@ -1,0 +1,12 @@
+{% extends 'cafe/event.html' %}
+{% load staticfiles %}
+
+{% block article %}
+    <article id="event-article">
+        <div>
+            <a href="{% url 'cafe:event_detail' event.id %}"><img src="{{ event.main_image.url }}" alt="event_image"></a>
+            <h2>{{ event.name }}</h2>
+            <span>{{ event.start_event_date }}~{{ event.end_event_date }}</span>
+        </div>
+    </article>
+{% endblock article %}

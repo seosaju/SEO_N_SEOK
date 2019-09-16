@@ -1,0 +1,15 @@
+{% extends 'cafe/main.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <section>
+        <img id="title-banner" src="{% static "images/main.jpg" %}" alt="공지사항">
+    </section>
+    <article id="main-article">
+        <h1>New Product</h1>
+        <ul>
+            <li><a href="{% url "cafe:event" %}"><img src="{% static "images/newmenu.jpg" %}" alt="newmenu"></a></li>
+            <li><a href="{% url "cafe:menu" %}"><img src="{% static "images/newmenu2.jpg" %}" alt="newmenu2"></a></li>
+        </ul>
+    </article>
+{% endblock %}

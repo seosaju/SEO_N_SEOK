@@ -1,0 +1,21 @@
+{% extends 'cafe/main.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <section id="section-header">
+        <h1>Menu</h1>
+    </section>
+    <article id="menu-article">
+        {% for category in menu_list %}
+            <ul>
+                <li class="category"><h1>{{ category.first.category }}</h1></li>
+                {% for menu in category %}
+                    <li>
+                        <a href="{% url 'cafe:menu_detail' menu.id %}"><img class="size_up" src="{{ menu.image.url }}" alt="{{ menu.korean_name }}"></a>
+                        <h2>{{ menu.korean_name }}</h2>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </article>
+{% endblock %}
